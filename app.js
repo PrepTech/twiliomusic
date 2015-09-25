@@ -11,10 +11,10 @@ app.get('/', function(req, res) {
 });
 
 app.post('/sms', function(req, res) {
-  var text = req.body['Body']
+  var song = req.body['Body']
 
   console.log(song);
-  io.emit('sms', text);
+  io.emit('sms', song);
 });
 
 var port = process.env.PORT || 1337
