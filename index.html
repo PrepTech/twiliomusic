@@ -19,14 +19,14 @@
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src='/socket.io/socket.io.js'></script>
   <script src="http://connect.soundcloud.com/sdk.js"></script>
   <script>
     SC.initialize({client_id: '9614e613efd137879d1dfca186c60eac'});
     var socket = io();
     socket.on('sms', function(song) {
-      $(body).append(song);
+      $('body').append(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
           sound.play();
