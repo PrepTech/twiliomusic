@@ -12,10 +12,11 @@
     <h1>Welcome to PrepTech!</h1>
     <h3>This is a website that plays music from soundcloud based on text messages.</h3>
     <h2 class="somethin">Text a song title or artist's name to +1 (626)-238-0340</h2>
+    <div id="song"></div>
   </div>
   <footer class="footer">
     <div class="container">
-      <p class="somethin-else text-muted">Created by Christopher Turner, James Anderson, Mateo Abascal, and Ankur Jain</p>
+      <p class="somethin-else text-muted">Created by Christopher Turner, James Anderson, and Mateo Abascal</p>
     </div>
   </footer>
 
@@ -26,11 +27,10 @@
     SC.initialize({client_id: '9614e613efd137879d1dfca186c60eac'});
     var socket = io();
     socket.on('sms', function(song) {
-      $('body').append(song);
+      $('#song').html(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
           sound.play();
-          window.setTimeout(function() { sound.stop() }, 10000);
         });
       });
     });
