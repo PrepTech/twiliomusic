@@ -30,6 +30,7 @@
       $('#song').html(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
+          sound.stop();
           sound.play();
         });
       });
