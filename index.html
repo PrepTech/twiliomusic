@@ -29,7 +29,9 @@
     var currentSong;
 
     socket.on('sms', function(song) {
-      console.log(currentSong);
+      if (currentSong !== undefined) {
+        currentSong.stop();
+      }
       $('#song').html(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
