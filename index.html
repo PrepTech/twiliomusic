@@ -29,11 +29,10 @@
     var currentSong;
 
     socket.on('sms', function(song) {
-      currentSong.stop();
+      console.log(currentSong);
       $('#song').html(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
-	  currentSong = sound;
           sound.play();
         });
       });
