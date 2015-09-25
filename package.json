@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "dependencies": {
+    "body-parser": "~1.9.0",
+    "bootstrap": "^3.3.5",
     "express": "~4.9.5",
-    "socket.io": "~1.1.0",
-    "body-parser": "~1.9.0"
+    "socket.io": "~1.1.0"
   }
 }
