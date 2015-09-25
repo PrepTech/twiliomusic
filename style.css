@@ -23,5 +23,18 @@ h2.somethin {
 }
 
 p.somethin-else {
-  text-size:20px
+  text-size:30px
+}
+
+body > .container {
+  padding:60px 15px 0
+}
+
+.container > .text-muted {
+  margin: 20px 0
+}
+
+.footer > .container {
+  padding-left:15px;
+  padding-right:15px
 }
