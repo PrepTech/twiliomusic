@@ -16,7 +16,7 @@ h2.somethin {
 }
 
 .footer {
-  position:relative;
+  position:fixed;
   bottom:0;
   width:100%;
   height:60px
@@ -32,9 +32,4 @@ body > .container {
 
 .container > .text-muted {
   margin: 20px 0
-}
-
-.footer > .container {
-  padding-left:15px;
-  padding-right:15px
 }
