@@ -26,11 +26,14 @@
   <script>
     SC.initialize({client_id: '9614e613efd137879d1dfca186c60eac'});
     var socket = io();
+    var currentSong;
+
     socket.on('sms', function(song) {
+      currentSong.stop();
       $('#song').html(song);
       SC.get('/tracks', {q: song}, function(songs) {
         SC.stream('/tracks/'+songs[0]['id'], function(sound) {
-          sound.stop();
+	  currentSong = sound;
           sound.play();
         });
       });
