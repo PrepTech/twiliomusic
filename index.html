@@ -20,11 +20,17 @@
   </footer>
 
   <script src='/socket.io/socket.io.js'></script>
-  <script src=""><script>
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
   <script>
+    SC.initialize({client_id: '9614e613efd137879d1dfca186c60eac'});
     var socket = io();
-    socket.on('sms', function(text) {
-      $(body).append(`<h1>${text}</h1>`);
+    socket.on('sms', function(song) {
+      SC.get('/tracks', {q: song}, function(songs) {
+        SC.stream('/tracks/'+songs[0]['id'], function(sound) {
+          sound.play();
+          window.setTimeout(function() { sound.stop() }, 10000);
+        });
+      });
     });
   </script>
 </body>
