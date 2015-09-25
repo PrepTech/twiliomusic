@@ -10,5 +10,7 @@ h2.somethin {
 
 h4.somethin-else {
   position:fixed;
-  bottom:0
+  bottom:0;
+  left:auto;
+  right:auto
 }
